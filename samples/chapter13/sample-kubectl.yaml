@@ -1,9 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
   name: sample-kubectl
+  namespace: ingress-nginx
 spec:
-  serviceAccountName: sample-serviceaccount
+  serviceAccountName: nginx-ingress-serviceaccount
   containers:
     - name: kubectl-container
       image: lachlanevenson/k8s-kubectl:v1.10.4
